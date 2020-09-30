@@ -63,7 +63,19 @@ self.addEventListener('fetch', function(event) {
 });
 self.addEventListener('activate', function(event) {
 
-  var cacheAllowlist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+  var cacheAllowlist = [
+    "/static/js/bundle.js",
+    "/static/js/main.chunk.js",
+    "/static/js/0.chunk.js",
+    "index.html",
+    "/main.f35862829a7e3aae5527.hot-update.js",
+    "/manifest.json",
+    "/favicon.ico",
+    "/logo192.png",
+    " https://opentdb.com/api_category.php",
+  
+    "/",
+  ];
 
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
