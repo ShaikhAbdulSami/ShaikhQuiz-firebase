@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { quizData } from "./Service/QuizService";
 import { QuizContentReqType, settingType } from "./Types/QuizType";
+import firebase from './firebase'
 //Components
 import QuizCard from "./Components/QuizCard";
 import Settings from "./Components/Setting";
@@ -64,6 +65,19 @@ function App() {
 
   //-1 is putted so it can be compared with an array since array starts from 0
   let fetchedQuestions = QuestionsOpts.length - 1;
+
+
+  // firebase config
+  const messaging = firebase.messaging();
+  messaging.getToken().then((currentToken : any) =>{
+    if (currentToken) {
+      console.log("Token" , currentToken);
+    } else{
+      console.log('No Instance ID token available. Request permission to generate one.');
+    }
+  }).catch((err : any) => {
+    console.log('An error occurred while retrieving token. ', err);
+  })
 
   return (
     <>
