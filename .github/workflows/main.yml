@@ -40,4 +40,4 @@ jobs:
       run: npm install --global surge
     
     - name: Deploy to Surge
-      run: surge ./build https://shaikh-expense-type.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./build https://shaikh-quizapp-type.surge.sh/ --token ${{ secrets.SURGE_TOKEN }}
